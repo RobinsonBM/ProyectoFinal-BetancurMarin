@@ -1,0 +1,26 @@
+@import '../variables';
+
+.carButton {
+    position: relative;
+
+    .carShopping {
+        font-size: 25px;
+        color: $amarillo;
+    }
+
+    .noti {
+        align-items: center;
+        background-color: $amarillo;
+        border-radius: 50%;
+        bottom: 20px;
+        display: flex;
+        font-family: $open-sans;
+        font-weight: 500;
+        height: 20px;
+        justify-content: center;
+        left: 20px;
+        position: absolute;
+        width: 20px;
+    }
+
+}

@@ -1,9 +1,12 @@
-import React from 'react'
+import NavBar from './components/NavBar'
+import ItemListContainer from './components/ItemListContainer'
+import '../src/styles/App.scss'
 
 export default function App() {
   return (
     <>
-      <h1>¡Hola Mundo!</h1>
+      <NavBar />
+      <ItemListContainer greeting='Hola Mundo'/>
     </>
   )
 }
