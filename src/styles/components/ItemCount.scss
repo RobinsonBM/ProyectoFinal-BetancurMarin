@@ -1,0 +1,49 @@
+@import '../variables';
+
+.btn-agregar{ 
+    background-color: $amarillo;
+    height: 30px;
+    width: 100px;
+    border-radius: 6px;
+}
+
+.btn-quitar {
+    background-color: $marron;
+    color: white;
+    height: 30px;
+    width: 100px;
+    border-radius: 6px;
+}
+
+.contenedor {
+    display: flex;
+    justify-content: center;
+
+    .item {
+        align-items: end;
+        background-color: $gris-sec;
+        border-radius: 8px;
+        display: flex;
+        height: 250px;
+        justify-content: center;
+        padding: 8px;
+        width: 400px;
+
+        .contador {
+            align-items: center;
+            background-color: $blanco;
+            border: 1px solid $gris;
+            border-radius: 6px;
+            display: flex;
+            height: 50px;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            padding: 15px;
+            width: 95%;
+
+            .icons {
+                cursor: pointer
+            }
+        }
+    }
+}
