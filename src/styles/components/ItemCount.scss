@@ -17,17 +17,25 @@
 
 .contenedor {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
 
     .item {
-        align-items: end;
-        background-color: $gris-sec;
+        align-items: center;
+        background-color: #eeeeee;
         border-radius: 8px;
         display: flex;
-        height: 250px;
-        justify-content: center;
+        flex-direction: column;
+        height: auto;
+        justify-content: end;
+        margin: 10px;
         padding: 8px;
         width: 400px;
+
+        img {
+            height: 200px;
+            object-fit: cover;
+        }
 
         .contador {
             align-items: center;

@@ -6,7 +6,7 @@ export default function App() {
   return (
     <>
       <NavBar />
-      <ItemListContainer greeting='Hola Mundo'/>
+      <ItemListContainer greeting='Harry Potter'/>
     </>
   )
 }

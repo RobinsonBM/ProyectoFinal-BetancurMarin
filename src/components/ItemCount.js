@@ -1,6 +1,6 @@
 import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { toast, ToastContainer } from 'react-toastify'
 import { injectStyle } from "react-toastify/dist/inject-style";
 import '../styles/components/ItemCount.scss'
@@ -9,9 +9,13 @@ if (typeof window !== "undefined") {
     injectStyle();
 }
 
-function ItemCount() {
+function ItemCount(props) {
+    const { personajes } = props
     const [stock, setStock] = useState(10)
     const [value, setValue] = useState(0);
+
+    useEffect(() => {
+    }, [personajes])
 
     const handlerLess = () => {
         if (value > 0) {
@@ -52,14 +56,24 @@ function ItemCount() {
 
     return (
         <div className="contenedor container pt-4">
-            <div className="item">
-                <div className="contador">
-                    <FontAwesomeIcon className="icons" onClick={handlerLess} icon={faMinus} />
-                    <p className="m-0"> {value} </p>
-                    <FontAwesomeIcon className="icons" onClick={handlerPlus} icon={faPlus} />
-                </div>
-            </div>
-            <ToastContainer/>
+            {personajes.map((personaje) => {
+                return (
+                    <>
+                        <div className="item">
+                            <img src={personaje.image} alt="" />
+                            <h1>{personaje.name}</h1>
+                            <p>Ver Detalle</p>
+                            <div className="contador">
+                                <FontAwesomeIcon className="icons" onClick={handlerLess} icon={faMinus} />
+                                <p className="m-0"> {value} </p>
+                                <FontAwesomeIcon className="icons" onClick={handlerPlus} icon={faPlus} />
+                            </div>
+                        </div>
+                        <ToastContainer />
+                    </>
+                )
+            })
+            }
         </div>
     )
 }
