@@ -1,57 +1,19 @@
 @import '../variables';
 
-.btn-agregar{ 
-    background-color: $amarillo;
-    height: 30px;
-    width: 100px;
-    border-radius: 6px;
-}
 
-.btn-quitar {
-    background-color: $marron;
-    color: white;
-    height: 30px;
-    width: 100px;
+.contador {
+    align-items: center;
+    background-color: $blanco;
+    border: 1px solid $gris;
     border-radius: 6px;
-}
-
-.contenedor {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    height: 50px;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    padding: 15px;
+    width: 200px;
 
-    .item {
-        align-items: center;
-        background-color: #eeeeee;
-        border-radius: 8px;
-        display: flex;
-        flex-direction: column;
-        height: auto;
-        justify-content: end;
-        margin: 10px;
-        padding: 8px;
-        width: 400px;
-
-        img {
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .contador {
-            align-items: center;
-            background-color: $blanco;
-            border: 1px solid $gris;
-            border-radius: 6px;
-            display: flex;
-            height: 50px;
-            justify-content: space-between;
-            margin-bottom: 15px;
-            padding: 15px;
-            width: 95%;
-
-            .icons {
-                cursor: pointer
-            }
-        }
+    .icons {
+        cursor: pointer
     }
 }

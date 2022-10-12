@@ -1,0 +1,30 @@
+@import '../variables';
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    height: 400px;
+    width: 300px;
+
+    .card-body {
+        align-items: center;
+        background-color: $gris-sec;
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        margin: 15px;
+        padding: 15px;
+
+        img {
+            height: 200px;
+        }
+        h1 {
+            font-size: 23px;
+        }
+        a {
+            color: black !important;
+
+        }
+    }
+}

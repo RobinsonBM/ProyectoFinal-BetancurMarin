@@ -9,13 +9,12 @@ if (typeof window !== "undefined") {
     injectStyle();
 }
 
-function ItemCount(props) {
-    const { personajes } = props
+function ItemCount() {
     const [stock, setStock] = useState(10)
     const [value, setValue] = useState(0);
 
     useEffect(() => {
-    }, [personajes])
+    }, [])
 
     const handlerLess = () => {
         if (value > 0) {
@@ -55,26 +54,14 @@ function ItemCount(props) {
     }
 
     return (
-        <div className="contenedor container pt-4">
-            {personajes.map((personaje) => {
-                return (
-                    <>
-                        <div className="item">
-                            <img src={personaje.image} alt="" />
-                            <h1>{personaje.name}</h1>
-                            <p>Ver Detalle</p>
-                            <div className="contador">
-                                <FontAwesomeIcon className="icons" onClick={handlerLess} icon={faMinus} />
-                                <p className="m-0"> {value} </p>
-                                <FontAwesomeIcon className="icons" onClick={handlerPlus} icon={faPlus} />
-                            </div>
-                        </div>
-                        <ToastContainer />
-                    </>
-                )
-            })
-            }
-        </div>
+        <>
+            <div className="contador">
+                <FontAwesomeIcon className="icons" onClick={handlerLess} icon={faMinus} />
+                <p className="m-0"> {value} </p>
+                <FontAwesomeIcon className="icons" onClick={handlerPlus} icon={faPlus} />
+            </div>
+            <ToastContainer />
+        </>
     )
 }
 export default ItemCount
