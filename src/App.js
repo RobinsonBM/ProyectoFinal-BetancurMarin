@@ -10,8 +10,8 @@ export default function App() {
       <BrowserRouter>
         <NavBar />
         <Routes>
-          <Route path='/students' element={<ItemListContainer greeting='Harry Potter' />} />
-          <Route path='/students/:id' element={<ItemDetail />} />
+          <Route path='/' element={<ItemListContainer greeting='Pokemons' />} />
+          <Route path='/pokemons/:detail' element={<ItemDetail />} />
         </Routes>
       </BrowserRouter>
     </>

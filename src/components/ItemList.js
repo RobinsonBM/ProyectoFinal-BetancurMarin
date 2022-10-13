@@ -2,13 +2,13 @@ import Item from "./Item"
 import '../styles/components/ItemList.scss'
 
 const ItemList = (props) => {
-    const { personajes } = props;
+    const { data } = props;
 
     return (
         <div  className='container'>
-            {personajes.map((personaje, index) => {
+            {data.map((item) => {
                 return (
-                    <Item personaje={personaje} index={index} />
+                    <Item key={item.name} item={item} />
                 )
             })
 

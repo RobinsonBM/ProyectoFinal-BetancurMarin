@@ -20,7 +20,7 @@ function ItemCount() {
         if (value > 0) {
             setValue(value - 1);
         } else {
-            toast.warn('No puedes restar mas de Cero', {
+            toast.warn('Llegaste a cero', {
                 icon: "🥴",
                 position: "top-right",
                 autoClose: 1500,
@@ -39,7 +39,7 @@ function ItemCount() {
         if (value < stock) {
             setValue(value + 1);
         } else if (value === stock) {
-            toast.warn('Alcanzaste el Stock maximo', {
+            toast.warn('No puedes capturar mas Pokemones', {
                 icon: "👌",
                 position: "top-right",
                 autoClose: 1500,

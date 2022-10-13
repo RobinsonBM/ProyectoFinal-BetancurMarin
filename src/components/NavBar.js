@@ -10,18 +10,18 @@ function CollapsibleExample() {
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
         <Navbar.Brand>
-          <Link to='/'>Harry Potter</Link>
+          <Link to='/'>Pokemons</Link>
           </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link>
-              <Link to='/students'>Estudiantes</Link>
+              <Link to=''>Locations</Link>
             </Nav.Link>
-            <Nav.Link>Picadas</Nav.Link>
-            <Nav.Link>Carnes Asadas</Nav.Link>
-            <Nav.Link>Pescados</Nav.Link>
-            <Nav.Link>Bebidas</Nav.Link>
+            <Nav.Link>Items</Nav.Link>
+            <Nav.Link>Machines</Nav.Link>
+            <Nav.Link>Moves</Nav.Link>
+            <Nav.Link>Berries</Nav.Link>
           </Nav>
         </Navbar.Collapse>
         <CartWidget />
