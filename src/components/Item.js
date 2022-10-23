@@ -1,28 +1,22 @@
-import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
-import PokemonServices from '../services/PokeApi.service.ts'
-import '../styles/components/Item.scss'
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import "../styles/components/Item.scss";
 
 const Item = (props) => {
-    const {item} = props
-    const pokemonServices = new PokemonServices()
-    const [imgPoke, setImgPoke] = useState('')
+  const { item } = props;
 
-    useEffect(() => {
-        pokemonServices.getImg(item.name).then((resp) => {
-            const img = resp.data.sprites.front_default;
-            setImgPoke(img);
-        })
-    }, [])
+  useEffect(() => {}, []);
 
-    return (
-        <div className='content'>
-            <div className='card-body'>
-                <img src={imgPoke} alt='' />
-                <h1>{item.name}</h1>
-                <Link to={`/pokemons/${item.name}`}>Ver detalle</Link>                
-            </div>
+  return (
+    <div className="content">
+      <div className="card-body">
+        <img src={item.image} alt="" />
+        <div className="w-100 d-flex flex-column align-items-center">
+          <h1>{item.name}</h1>
+          <Link to={`/personajes/${item.id}`}>Ver detalle</Link>
         </div>
-    )
-}
-export default Item
+      </div>
+    </div>
+  );
+};
+export default Item;

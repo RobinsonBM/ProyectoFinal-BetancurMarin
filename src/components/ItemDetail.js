@@ -1,54 +1,34 @@
-import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
-import PokemonServices from "../services/PokeApi.service.ts"
-import ItemCount from "./ItemCount"
-import '../styles/components/ItemDetail.scss'
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import ItemCount from "./ItemCount";
+import RickAndMorthyServices from "../services/rickAndMorthy.service.ts";
+import "../styles/components/ItemDetail.scss";
 
 const ItemDetail = () => {
-  const pokemonServices = new PokemonServices()
-  const id = useParams()
-  const [abilities, setAbilities] = useState([])
-  const [pokemon, setPokemon] = useState({})
-  const [imgPoke, setImgPoke] = useState('')
-  const areas = [];
+  const id = useParams();
+  const rickAndMorthyServices = new RickAndMorthyServices();
+  const [personaje, setPersonaje] = useState({});
+  const [goCart, setGoCart] = useState(false);
 
   useEffect(() => {
-    pokemonServices.getPokemon(id.detail).then((resp) => {
-      const pokemon = resp.data;
-      setPokemon(pokemon);
-      setAbilities(pokemon.abilities)
-      console.log(`RobinDev - pokemon.abilities`, pokemon);
-    })
-
-    pokemonServices.getImg(id.detail).then((resp) => {
-      const img = resp.data.sprites.front_default;
-      setImgPoke(img);
-    })
-
-  }, [])
-  
-  useEffect(() => {
-    console.log(`RobinDev - areas`, areas);
-
-  }, [areas])
+    rickAndMorthyServices.getPersonaje(id.detail).then((resp) => {
+      const item = resp.data;
+      setPersonaje(item);
+      console.log(`RobinDev - personaje`, item);
+    });
+  }, []);
 
   return (
     <div className="pokeDetail">
-      <h1>{pokemon.name}</h1>
-      <img src={imgPoke} alt="" />
-      <p>Height: <span>{pokemon.height}</span></p>
-      <p>Weight: <span>{pokemon.weight}</span></p>
-      <h2>abilities</h2>
-      <ol>
-        {abilities.map((ability) => {
-          return (
-            <li>{ability.ability.name}</li>
-          )
-        })
-        }
-      </ol>
+      <img src={personaje.image}></img>
+      <h1>{personaje.name}</h1>
+      <p>Species: {personaje.species}</p>
+      <p>Gender: {personaje.gender}</p>
+      <p>Location: {personaje.location?.name}</p>
+      <p>Origin: {personaje.origin?.name}</p>
+      <p>Status: {personaje.status}</p>
       <ItemCount />
     </div>
-  )
-}
-export default ItemDetail
+  );
+};
+export default ItemDetail;

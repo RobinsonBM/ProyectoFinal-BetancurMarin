@@ -1,8 +1,8 @@
-import NavBar from './components/NavBar'
-import ItemListContainer from './components/ItemListContainer'
-import '../src/styles/App.scss'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import ItemDetail from './components/ItemDetail'
+import NavBar from "./components/NavBar";
+import ItemListContainer from "./components/ItemListContainer";
+import "../src/styles/App.scss";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import ItemDetail from "./components/ItemDetail";
 
 export default function App() {
   return (
@@ -10,10 +10,17 @@ export default function App() {
       <BrowserRouter>
         <NavBar />
         <Routes>
-          <Route path='/' element={<ItemListContainer greeting='Pokemons' />} />
-          <Route path='/pokemons/:detail' element={<ItemDetail />} />
+          <Route
+            path="/"
+            element={<ItemListContainer greeting="Personajes" />}
+          />
+          <Route
+            path="/personjes"
+            element={<ItemListContainer greeting="Personajes" />}
+          />
+          <Route path="/personajes/:detail" element={<ItemDetail />} />
         </Routes>
       </BrowserRouter>
     </>
-  )
+  );
 }
