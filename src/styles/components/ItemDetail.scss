@@ -8,4 +8,15 @@
     img {
         height: 250px;
     }
+
+    .terminar {
+        align-items: center;
+        background-color: $negro;
+        border-radius: 8px;
+        color: $blanco !important;
+        display: flex;
+        height: 35px;
+        justify-content: center;
+        width: 170px;
+    }
 }

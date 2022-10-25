@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import ItemCount from "./ItemCount";
 import RickAndMorthyServices from "../services/rickAndMorthy.service.ts";
 import "../styles/components/ItemDetail.scss";
@@ -18,6 +18,11 @@ const ItemDetail = () => {
     });
   }, []);
 
+  const onAdd = (cantidad) => {
+    setGoCart(true);
+    console.log(cantidad);
+  };
+
   return (
     <div className="pokeDetail">
       <img src={personaje.image}></img>
@@ -27,7 +32,13 @@ const ItemDetail = () => {
       <p>Location: {personaje.location?.name}</p>
       <p>Origin: {personaje.origin?.name}</p>
       <p>Status: {personaje.status}</p>
-      <ItemCount />
+      {goCart ? (
+        <Link className="terminar" to="/cart">
+          Terminar compra
+        </Link>
+      ) : (
+        <ItemCount inicial={1} stock={10} onAdd={onAdd} />
+      )}
     </div>
   );
 };
