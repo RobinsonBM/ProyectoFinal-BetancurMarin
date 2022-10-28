@@ -1,27 +1,34 @@
 import { useEffect, useState } from "react";
+import RestauranteLa44Services from "../services/RestauranteLa44.service.ts";
 import RickAndMorthyServices from "../services/rickAndMorthy.service.ts";
 import "../styles/components/ItemListContainer.scss";
 import ItemList from "./ItemList";
 // import platos from '../mock/itemsRest.json'
 
 function ItemListContainer(props) {
-  const rickAndMorthyServices = new RickAndMorthyServices();
-  const [personajes, setPersonajes] = useState([]);
-  // const [data, setData] = useState([])
+  const restauranteLa44Services = new RestauranteLa44Services();
+  const [data, setData] = useState([]);
 
   useEffect(() => {
-    /* A promise that is resolved after 2 seconds. */
-    rickAndMorthyServices.getAll().then((resp) => {
-      setPersonajes(resp.data.results);
-      console.log(`RobinDev - setPersonajes`, personajes);
-    });
+    const querydb = restauranteLa44Services.querydb();
+    const queryCollection = restauranteLa44Services.queryCollection(
+      querydb,
+      "productos"
+    );
+    restauranteLa44Services
+      .getDocs(queryCollection)
+      .then((resp) =>
+        setData(
+          resp.docs.map((producto) => ({ id: producto.id, ...producto.data() }))
+        )
+      );
   }, []);
 
   return (
     <>
       <header>
         <h1>{props.greeting}</h1>
-        <ItemList data={personajes} />
+        <ItemList data={data} />
       </header>
     </>
   );

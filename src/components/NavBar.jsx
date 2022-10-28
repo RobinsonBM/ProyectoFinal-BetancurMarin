@@ -10,17 +10,19 @@ function CollapsibleExample() {
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
         <Navbar.Brand>
-          <Link to="/">Rick And Morthy</Link>
+          <Link to="/">Restaurante la 44</Link>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link>
-              <Link to="/personjes">Personajes</Link>
+              <Link to="/personjes">Productos</Link>
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
-        <CartWidget />
+        <Link to="/cart">
+          <CartWidget />
+        </Link>
       </Container>
     </Navbar>
   );

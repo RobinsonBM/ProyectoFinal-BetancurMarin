@@ -1,0 +1,15 @@
+@import '../variables';
+
+.hacerCompra {
+    button {
+        background-color: $amarillo;
+        color: $negro !important;
+        height: 30px;
+    }
+}
+
+.contenedor {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}

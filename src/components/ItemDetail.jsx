@@ -1,37 +1,42 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import ItemCount from "./ItemCount";
-import RickAndMorthyServices from "../services/rickAndMorthy.service.ts";
 import "../styles/components/ItemDetail.scss";
+import { useCartContext } from "../context/CartContext";
+import RestauranteLa44Services from "../services/RestauranteLa44.service.ts";
 
 const ItemDetail = () => {
   const id = useParams();
-  const rickAndMorthyServices = new RickAndMorthyServices();
-  const [personaje, setPersonaje] = useState({});
+  console.log(`RobinDev - id`, id);
+  const restauranteLa44Services = new RestauranteLa44Services();
+  const [data, setData] = useState({});
   const [goCart, setGoCart] = useState(false);
+  const { addProduct } = useCartContext();
 
   useEffect(() => {
-    rickAndMorthyServices.getPersonaje(id.detail).then((resp) => {
-      const item = resp.data;
-      setPersonaje(item);
-      console.log(`RobinDev - personaje`, item);
-    });
+    const querydb = restauranteLa44Services.querydb();
+    const queryDoc = restauranteLa44Services.queryDoc(
+      querydb,
+      "productos",
+      id.detail
+    );
+    restauranteLa44Services
+      .getDoc(queryDoc)
+      .then((resp) => setData({ id: resp.id, ...resp.data() }));
   }, []);
 
   const onAdd = (cantidad) => {
     setGoCart(true);
-    console.log(cantidad);
+    addProduct(data, cantidad);
   };
 
   return (
     <div className="pokeDetail">
-      <img src={personaje.image}></img>
-      <h1>{personaje.name}</h1>
-      <p>Species: {personaje.species}</p>
-      <p>Gender: {personaje.gender}</p>
-      <p>Location: {personaje.location?.name}</p>
-      <p>Origin: {personaje.origin?.name}</p>
-      <p>Status: {personaje.status}</p>
+      <img src={data.image}></img>
+      <h1>{data.title}</h1>
+      <p>Categoria : {data.category}</p>
+      <p>Descripcion: {data.description}</p>
+      <p>Precio: {data.price}</p>
       {goCart ? (
         <Link className="terminar" to="/cart">
           Terminar compra
