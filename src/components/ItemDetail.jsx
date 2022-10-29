@@ -31,7 +31,7 @@ const ItemDetail = () => {
 
   return (
     <div className="itemDetail container mt-3">
-      <img src={data.image}></img>
+      <img src={data.image} alt=""></img>
       <h1>{data.title}</h1>
       <p>
         <b>Descripcion: </b>

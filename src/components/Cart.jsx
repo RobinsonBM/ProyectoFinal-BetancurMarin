@@ -3,6 +3,7 @@ import { useCartContext } from "../context/CartContext";
 import ItemCart from "./ItemCart";
 import "../styles/components/Cart.scss";
 import RestauranteLa44Services from "../services/RestauranteLa44.service.ts";
+import { serverTimestamp } from "firebase/firestore";
 
 const Cart = () => {
   const restauranteLa44Services = new RestauranteLa44Services();
@@ -21,6 +22,7 @@ const Cart = () => {
       cantidad: producto.cantidad,
     })),
     total: precioTotal(),
+    date: serverTimestamp(),
   };
 
   const handleClick = () => {
