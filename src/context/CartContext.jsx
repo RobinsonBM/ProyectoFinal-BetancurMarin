@@ -14,7 +14,6 @@ const CartProvider = ({ children }) => {
     newCart.push({ ...item, cantidad });
     setCart(newCart);
   };
-  console.log(`RobinDev - cart`, cart);
 
   const cleanCart = () => setCart([]);
 

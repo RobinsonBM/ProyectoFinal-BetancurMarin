@@ -24,9 +24,6 @@ export default class RestauranteLa44Services {
     }
 
     postDoc(orderCollection, order) {
-        console.log(`RobinDev - order`, order);
-        console.log(`RobinDev - orderCollection`, orderCollection);
-
         return addDoc(orderCollection, order)
     }
 }

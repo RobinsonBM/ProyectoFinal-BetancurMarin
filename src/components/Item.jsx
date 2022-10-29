@@ -4,7 +4,6 @@ import "../styles/components/Item.scss";
 
 const Item = (props) => {
   const { item } = props;
-  console.log(`RobinDev - item`, item);
 
   useEffect(() => {}, []);
 

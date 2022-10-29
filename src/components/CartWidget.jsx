@@ -5,7 +5,6 @@ import { useCartContext } from "../context/CartContext";
 
 function CartWidget() {
   const { totalProductos } = useCartContext();
-  console.log(`RobinDev - totalProductos`, totalProductos());
   return (
     <div className="carButton">
       <FontAwesomeIcon className="carShopping" icon={faCartShopping} />

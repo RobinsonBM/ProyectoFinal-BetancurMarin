@@ -12,7 +12,6 @@ function ItemListContainer(props) {
   const [data, setData] = useState([]);
   const { categoryId } = useParams();
   const [category, setCategory] = useState("");
-  console.log(`RobinDev - categoryId`, categoryId);
 
   useEffect(() => {
     const querydb = restauranteLa44Services.querydb();
