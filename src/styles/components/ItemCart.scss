@@ -3,12 +3,17 @@
 .content1 {
     display: flex;
     flex-wrap: wrap;
-    height: 500px;
+    height: 480px;
     width: 300px;
+
+    &:hover {
+        transform: scale(1.05);
+        transition: all 0.5s;
+    }
 
     .card-body {
         align-items: center;
-        background-color: $gris-sec;
+        background-color: #f3f3f3;
         border-radius: 8px;
         display: flex;
         flex-direction: column;
@@ -17,7 +22,13 @@
         padding: 15px;
 
         img {
+            border-radius: 8px;
+            background: linear-gradient(225deg, #cacaca, #f0f0f0);
+            box-shadow: -20px 20px 60px #bebebe,
+                20px -20px 60px #ffffff;
             height: 200px;
+            object-fit: cover;
+            width: 200px;
         }
 
         h1 {
