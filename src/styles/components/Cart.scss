@@ -1,5 +1,12 @@
 @import '../variables';
 
+.boton {
+    background-color: $amarillo;
+    border-radius: 8px;
+    height: 30px;
+    width: 170px;
+}
+
 .hacerCompra {
     button {
         background-color: $amarillo;

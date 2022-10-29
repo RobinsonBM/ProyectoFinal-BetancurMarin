@@ -66,7 +66,7 @@ function ItemCount({ inicial, stock, onAdd }) {
         />
       </div>
       <button
-        className="agregar"
+        className="agregar mb-3"
         disabled={stock <= 0}
         onClick={() => onAdd(value)}
       >

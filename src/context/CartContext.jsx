@@ -27,13 +27,12 @@ const CartProvider = ({ children }) => {
   };
 
   const precioTotal = () => {
-    return cart.reduce((prev, act) => prev + act.cantidad * act.precio, 0);
+    return cart.reduce((prev, act) => prev + act.cantidad * act.price, 0);
   };
 
   const totalProductos = () =>
     cart.reduce(
-      (acumulador, productoActual) =>
-        acumulador + productoActual.cantidad.cantidad,
+      (acumulador, productoActual) => acumulador + productoActual.cantidad,
       0
     );
 

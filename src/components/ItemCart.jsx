@@ -8,10 +8,22 @@ const ItemCart = ({ producto }) => {
       <div className="card-body">
         <img src={producto.image} alt="" />
         <div className="w-100 d-flex flex-column align-items-center">
-          <h1>{producto.name}</h1>
+          <h1>{producto.title}</h1>
           <p>Cantidad: {producto.cantidad}</p>
-          <p>Precio Unidad: {producto.price}</p>
-          <p>Subtotal: ${producto.cantidad * producto.price}</p>
+          <p>
+            Precio Unidad: $
+            {new Intl.NumberFormat("locales", {
+              style: "currency",
+              currency: "COP",
+            }).format(producto.price)}
+          </p>
+          <p>
+            Subtotal: $
+            {new Intl.NumberFormat("locales", {
+              style: "currency",
+              currency: "COP",
+            }).format(producto.cantidad * producto.price)}
+          </p>
           <button onClick={() => removeProduct(producto.id)}>Eliminar</button>
         </div>
       </div>

@@ -16,7 +16,19 @@ function CollapsibleExample() {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link>
-              <Link to="/personjes">Productos</Link>
+              <Link to="/platos-tipicos">Platos Tipicos</Link>
+            </Nav.Link>
+            <Nav.Link>
+              <Link to="/carnes-asadas">Carnes Asadas</Link>
+            </Nav.Link>
+            <Nav.Link>
+              <Link to="/pescados">Pescados</Link>
+            </Nav.Link>
+            <Nav.Link>
+              <Link to="/hamburguesas">Hamburguesas</Link>
+            </Nav.Link>
+            <Nav.Link>
+              <Link to="/desayunos">Desayunos</Link>
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>

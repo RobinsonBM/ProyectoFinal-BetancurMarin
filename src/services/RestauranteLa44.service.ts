@@ -1,4 +1,4 @@
-import { getFirestore, collection, doc, getDocs, getDoc } from 'firebase/firestore';
+import { getFirestore, collection, doc, getDocs, getDoc, addDoc } from 'firebase/firestore';
 
 export default class RestauranteLa44Services {
     querydb() {
@@ -21,5 +21,12 @@ export default class RestauranteLa44Services {
 
     getDoc(queryDoc): Promise<any> {
         return getDoc(queryDoc)
+    }
+
+    postDoc(orderCollection, order) {
+        console.log(`RobinDev - order`, order);
+        console.log(`RobinDev - orderCollection`, orderCollection);
+
+        return addDoc(orderCollection, order)
     }
 }

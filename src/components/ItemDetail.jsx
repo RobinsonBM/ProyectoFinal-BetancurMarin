@@ -6,8 +6,7 @@ import { useCartContext } from "../context/CartContext";
 import RestauranteLa44Services from "../services/RestauranteLa44.service.ts";
 
 const ItemDetail = () => {
-  const id = useParams();
-  console.log(`RobinDev - id`, id);
+  const { detail } = useParams();
   const restauranteLa44Services = new RestauranteLa44Services();
   const [data, setData] = useState({});
   const [goCart, setGoCart] = useState(false);
@@ -18,7 +17,7 @@ const ItemDetail = () => {
     const queryDoc = restauranteLa44Services.queryDoc(
       querydb,
       "productos",
-      id.detail
+      detail
     );
     restauranteLa44Services
       .getDoc(queryDoc)
@@ -31,16 +30,29 @@ const ItemDetail = () => {
   };
 
   return (
-    <div className="pokeDetail">
+    <div className="itemDetail container mt-3">
       <img src={data.image}></img>
       <h1>{data.title}</h1>
-      <p>Categoria : {data.category}</p>
-      <p>Descripcion: {data.description}</p>
-      <p>Precio: {data.price}</p>
+      <p>
+        <b>Descripcion: </b>
+        {data.description}
+      </p>
+      <p>
+        <b>Precio:</b> $
+        {new Intl.NumberFormat("locales", {
+          style: "currency",
+          currency: "COP",
+        }).format(data.price)}
+      </p>
       {goCart ? (
-        <Link className="terminar" to="/cart">
-          Terminar compra
-        </Link>
+        <>
+          <Link className="terminar" to="/cart">
+            Terminar compra
+          </Link>
+          <Link className="seguir mt-3" to="/">
+            Seguir comprando
+          </Link>
+        </>
       ) : (
         <ItemCount inicial={1} stock={10} onAdd={onAdd} />
       )}
