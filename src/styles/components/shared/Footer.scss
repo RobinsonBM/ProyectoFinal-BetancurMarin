@@ -1,0 +1,90 @@
+@import '../../variables';
+
+footer {
+    background-color: $marron;
+    bottom: 0;
+    color: $blanco;
+    padding: 15px 0 10px;
+    width: 100%;
+
+    #footer {
+
+        ul {
+            padding: 0;
+        }
+
+        .footer-logo {
+            @extend .footer-nav;
+            justify-content: center;
+
+            img {
+                border-radius: 100%;
+                width: 140px;
+            }
+        }
+
+        .footer-nav {
+            align-items: center;
+            display: flex;
+
+            li {
+                list-style: none;
+            }
+        }
+
+        .footer-carta {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            li {
+                list-style: none;
+            }
+        }
+
+        .footer-contacto {
+
+            li {
+                list-style: none;
+                margin-bottom: 10px;
+            }
+
+            .redes {
+                display: flex;
+                justify-content: space-evenly;
+                width: 100%;
+
+                img,
+                em {
+                    height: 14px;
+                }
+
+                em {
+                    color: $amarillo;
+                }
+            }
+        }
+
+        .footer-logo,
+        .footer-nav,
+        .footer-carta {
+            @media (max-width: 767px) {
+                display: flex;
+                justify-content: center;
+            }
+        }
+
+        a {
+            color: $blanco;
+
+            &:hover {
+                color: $amarillo;
+            }
+        }
+    }
+
+    p {
+        color: $gris;
+        text-align: center;
+    }
+}

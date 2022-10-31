@@ -12,3 +12,9 @@ $gris: #999999;
 $gris-sec: #eeeeee;
 $gris-claro: #F2F2F2;
 $negro: #000;
+
+// Mixins 
+@mixin sizes ($height, $width) {
+    height: $height;
+    width: $width;
+}
